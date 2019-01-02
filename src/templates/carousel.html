@@ -1,0 +1,47 @@
+<div class="carousel">
+
+  {% for slide in slides %}
+
+    <div class="slide {{ slide.project }}">
+      <div class="circle blue">
+        <div class="devices">
+          <img src="img/projects/devices/desktop-{{ slide.project }}.png" class="desktop" alt="{{ slide.project }}"/>
+          <img src="img/projects/devices/laptop-{{ slide.project }}.png" class="laptop" alt="{{ slide.project }}"/>
+          <img src="img/projects/devices/mobile-{{ slide.project }}.png" class="mobile" alt="{{ slide.project }}"/>
+        </div>
+        <div class="about">
+          <h3>{{ slide.role }}</h3>
+          <ul>
+            {% for item in slide.items %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+
+          <a class="link" href="{{ slide.cta }}" target="_blank">{{ slide.cta_text }}</a>
+        </div>
+      </div>
+      <div class="titles">
+        <h2>{{ slide.headline|safe }}</h2>
+        <h4>{{ slide.type }}</h4>
+        <a class="btn"><div class="text">Learn More</div><span></span></a>
+      </div>
+    </div>
+
+  {% endfor %}
+
+</div>
+
+<div class="arrow arrow-prev" data-morph-active="M206.6-152.8v505.6L644.4,100L206.6-152.8z M213.6,271.5L510.7,100L213.6-71.5v-69.2L630.4,100L213.6,340.6
+        V271.5z M213.8,263.3V-63.3L496.7,100L213.8,263.3z">
+  <svg width="100%" height="100%"  viewBox="156 -156 512 512" preserveAspectRatio="none">
+    <path fill="#ffffff" d="M206.6-75.4v350.9L644.4,100L206.6-75.4z M213.6,271.5l0.2-171.5l-0.2-171.5v8.2L630.4,100L213.6,263.3V271.5z
+		 M213.8,263.3V-63.3V100V263.3z"></path>
+  </svg>
+</div>
+<div class="arrow arrow-next" data-morph-active="M206.6-152.8v505.6L644.4,100L206.6-152.8z M213.6,271.5L510.7,100L213.6-71.5v-69.2L630.4,100L213.6,340.6
+		V271.5z M213.8,263.3V-63.3L496.7,100L213.8,263.3z">
+  <svg width="100%" height="100%"  viewBox="156 -156 512 512" preserveAspectRatio="none">
+    <path fill="#ffffff" d="M206.6-75.4v350.9L644.4,100L206.6-75.4z M213.6,271.5l0.2-171.5l-0.2-171.5v8.2L630.4,100L213.6,263.3V271.5z
+            M213.8,263.3V-63.3V100V263.3z"></path>
+  </svg>
+</div>

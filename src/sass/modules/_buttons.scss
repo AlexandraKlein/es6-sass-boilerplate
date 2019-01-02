@@ -1,0 +1,73 @@
+$btn-width: 250px !default;
+$btn-height: 80px !default;
+$btn-color-desktop: lighten($gray-blue, 20%);
+$btn-color-mobile: lighten($gray-blue, 10%);
+
+@mixin button($btn-color) {
+  box-sizing: border-box;
+  outline: none;
+  line-height: $btn-height;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  max-width: $btn-width;
+  width: 100%;
+  height: $btn-height;
+  margin-top: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid $btn-color;
+  color: $btn-color;
+  transition: color 0.4s ease-in-out;
+
+  @include mobile {
+    background-color: $btn-color;
+    color: $white;
+    line-height: 40px;
+    height: 40px;
+    margin-top: 15px;
+    width: 150px;
+    font-size: 14px;
+  }
+
+  span {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: $btn-color;
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  &:hover {
+    color: lighten($btn-color, 75%);
+
+    span {
+      width: 225%;
+      height: 562.5px;
+    }
+  }
+
+  &:active {
+    background-color: $btn-color;
+  }
+}
+
+.btn {
+  @include button($btn-color-desktop);
+
+  @include mobile {
+    @include  button($btn-color-mobile)
+  }
+
+  &.dark {
+    @include mobile {
+      @include  button($dark-gray-blue);
+      display: inline-table !important;
+    }
+  }
+}

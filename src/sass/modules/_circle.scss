@@ -1,0 +1,90 @@
+.main-section {
+
+  .circle {
+    @extend .vertical-align;
+    position: relative;
+    width: 120vmax;
+    height: 120vmax;
+    border-radius: 100%;
+    margin: auto;
+    background-color: $pink;
+    transition: background-color .75s ease-in-out;
+
+    &:not(.blue) {
+      background-color: $pink;
+    }
+
+    &.blue {
+      background-color: $gray-blue;;
+    }
+
+    .me {
+      opacity: 1;
+      position: absolute;
+      width: 100%;
+      right: 0;
+      bottom: 0;
+      animation: fadeOut .2s ease-in forwards 1s;
+    }
+
+    @include tablet {
+      right: -12.5vw;
+    }
+  }
+
+  > .circle {
+    animation: circleIn $duration $ease forwards $duration/1.5;
+
+    @include mobile {
+      animation: circleInMobile $duration $ease forwards $duration/1.5;
+    }
+  }
+
+  .active {
+    .circle {
+      animation: circleIn $duration $ease forwards $duration/1.5;
+
+      @include mobile {
+        animation: circleInMobile $duration $ease forwards $duration/1.5;
+      }
+    }
+  }
+
+  .slick-slide:not(.active) {
+    .circle {
+      width: 45vw;
+      height: 45vw;
+
+      @include mobile {
+        width: 60vmax;
+        height: 60vmax;
+      }
+    }
+  }
+}
+
+.transition-out {
+  section {
+    .circle {
+      animation: circleOut $duration $ease forwards;
+
+      @include mobile {
+        animation: circleOutMobile $duration $ease forwards;
+      }
+    }
+  }
+
+  section.projects {
+
+    .slick-active {
+      .circle {
+        background-color: $pink;
+        animation: circleOut $duration $ease forwards;
+
+        @include mobile {
+          animation: circleOutMobile $duration $ease forwards;
+        }
+      }
+    }
+  }
+}

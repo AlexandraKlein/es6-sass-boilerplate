@@ -1,0 +1,14 @@
+body.contact {
+
+  .copy {
+    p {
+      span {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .link {
+    @include anchorLink($gray-blue)
+  }
+}

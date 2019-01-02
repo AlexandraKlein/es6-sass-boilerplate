@@ -1,0 +1,6 @@
+<ul class="pagination">
+  {% for pagination in paginations %}
+    <li><a class="{% if loop.index == 1 %}active{% endif %}" href="#{{ pagination.section }}"><span>0{{ loop.index }}</span></a></li>
+  {% endfor %}
+</ul>
+

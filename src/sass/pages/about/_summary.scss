@@ -1,0 +1,87 @@
+body.about {
+
+  .summary {
+
+    h2 {
+      @include mobile {
+        font-size: 48px;
+      }
+    }
+
+    figure {
+      position: relative;
+      color: $white;
+      margin: 0;
+
+      @include tablet {
+        padding-left: 35px;
+      }
+
+      @include mobile {
+        padding: 0 20px 0 0;
+      }
+
+      @include tablet {
+        width: 50vw;
+      }
+
+      @include desktop {
+        width: 50%;
+      }
+
+      p {
+        position: relative;
+        margin: 0 0 15px 0;
+        padding: 0 0 0 100px;
+        font-size: 15px;
+        font-size: 1.5rem;
+        line-height: 1.2em;
+        letter-spacing: .03em;
+        transition: all .2s ease-out .5s;
+        opacity: 0;
+        transform: translateY(5vw);
+
+        @include tablet {
+          margin: 0 0 28px 0;
+        }
+      }
+
+      span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 14px;
+        font-size: 1.4rem;
+        line-height: 1.3em;
+        text-transform: uppercase;
+        letter-spacing: .15em;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: calc(100% - 1.7em);
+        top: 0;
+        left: 0;
+        background-color: $gray-blue;
+        z-index: 1;
+
+        @include mobile {
+          display: none;
+        }
+      }
+    }
+
+    &.active figure p {
+      transform: translateY(0);
+      opacity: 1;
+
+      @for $i from 1 to 10 {
+        &:nth-child(#{$i}) {
+          transition-delay: .5 + $i/20 + s;
+        }
+      }
+    }
+  }
+}

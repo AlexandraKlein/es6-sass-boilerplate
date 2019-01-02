@@ -1,0 +1,44 @@
+.scroll-section {
+  &.contact {
+    .me {
+      bottom: -1px;
+      width: calc(100% + 5px);
+      right: auto;
+      @extend .horizontal-align;
+    }
+  }
+}
+
+.scrollify-arrows {
+  position: fixed;
+  bottom: 10px;
+  left: 50px;
+
+  div {
+    width: 5vw;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    &.arrow-down {
+      transform: rotate(180deg);
+    }
+
+    &.disabled {
+      opacity: .3;
+      pointer-events: none;
+    }
+
+    svg {
+      width: 100%;
+      pointer-events: none;
+
+      path {
+        pointer-events: none;
+      }
+    }
+  }
+
+  @include mobile {
+    display: none;
+  }
+}

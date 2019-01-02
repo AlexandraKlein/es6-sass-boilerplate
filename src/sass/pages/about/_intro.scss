@@ -1,0 +1,45 @@
+body.about {
+
+  .intro {
+
+    .video-container {
+      position: absolute;
+      width: 45vw;
+      height: 45vw;
+      left: 0;
+      top: 0;
+      border-radius: 100%;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeIn $duration forwards $duration*1.5;
+      mix-blend-mode: darken;
+
+      @include mobile {
+        width: 60vmax;
+        height: 60vmax;
+      }
+    }
+    .circle {
+
+      video {
+        position: absolute;
+        @extend .align-both;
+        width: 100%;
+      }
+    }
+
+    .copy {
+      @include mobile {
+        padding-bottom: 200px;
+      }
+    }
+  }
+
+  .transition-out {
+    .intro {
+      .video-container {
+        animation: fadeOut $duration/8 forwards;
+      }
+    }
+  }
+}

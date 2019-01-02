@@ -1,0 +1,122 @@
+body.projects {
+
+  section.main-section {
+    background-color: $gray-blue;
+    border-bottom: none;
+
+    .img-intro {
+      width: 83%;
+      @extend .align-both;
+      opacity: 0;
+      animation: fadeIn $duration forwards $duration*1.5;
+      //mix-blend-mode: overlay;
+    }
+
+    .details {
+      display: inline-table;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn $duration/2 $ease forwards $duration/2;
+
+      h3 {
+        position: relative;
+        font-size: 38px;
+        margin: 10px 0 0 10px;
+        color: darken($dark-gray-blue, 10%);
+      }
+
+      ul {
+        padding-left: 0;
+        list-style: none;
+        width: 20vw;
+
+        li {
+          position: relative;
+          color: darken($dark-gray-blue, 10%);
+          font-size: 20px;
+          padding: 5px 5px 5px 20px;
+          display: inline-block;
+
+          &:before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: darken($dark-gray-blue, 10%);
+            border-radius: 100%;
+            left: 5px;
+            @extend .vertical-align;
+          }
+        }
+      }
+    }
+  }
+
+  section.project {
+    background-color: $gray-blue;
+    border: 20px solid $white;
+    border-top: none;
+    padding: 5vw;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 80%;
+      margin: auto;
+
+      .img {
+        position: relative;
+        width: 95%;
+        z-index: 1;
+
+        @include tablet {
+          width: 70%;
+        }
+
+        img {
+          width: 100%;
+          display: block;
+        }
+
+        &:nth-of-type(even) {
+          align-self: flex-end;
+        }
+
+        &:after {
+          content:  '';
+          position: absolute;
+          width: 110%;
+          height: 100%;
+          top: 0;
+          left: -10%;
+          background-color: $pink;
+          transition: width $duration/2 $ease;
+        }
+
+        &:nth-of-type(even){
+          &:after {
+            right: -10%;
+            left: auto;
+          }
+        }
+
+        &.in-viewport {
+          transition: none;
+
+          &:after {
+            width: 10%;
+          }
+        }
+      }
+    }
+  }
+
+  .transition-out {
+    .main-section {
+      .img-intro {
+        animation: fadeOut $duration/2 forwards;
+      }
+    }
+  }
+}

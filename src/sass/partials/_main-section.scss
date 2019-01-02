@@ -1,0 +1,134 @@
+.main-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $base;
+  transition: all $ease $duration;
+
+  @include tablet {
+    border: 20px solid $white;
+  }
+
+  .copy {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    left: 12.5vw;
+    height: 50vw;
+    @extend .vertical-align;
+
+    @include mobile {
+      left: 20px;
+    }
+
+    h1,
+    h2 {
+      display: inline-table;
+      position: relative;
+      margin: 0;
+      opacity: 0;
+      color: $white;
+      font-family: $header-font;
+      line-height: 1;
+      animation: fadeIn $duration/2 $ease forwards $duration/2;
+
+      @include tablet {
+        @include textShadow($dark-gray-blue, .5);
+      }
+    }
+
+    h1 {
+      font-size: 13vw;
+    }
+
+    h2 {
+      font-size: 5.1vw;
+    }
+
+    a {
+      margin-top: 30px;
+      display: block;
+    }
+  }
+
+  .copy,
+  .titles {
+    transform: translate(0, -50%);
+  }
+
+  &.active {
+
+    .copy,
+    .titles {
+      opacity: 0;
+    }
+  }
+}
+
+.barba-container {
+  .main-section.active {
+    .circle {
+      .me {
+        opacity: 0;
+        animation: fadeIn .2s ease-in forwards .7s;
+      }
+    }
+
+    .copy,
+    .titles {
+      animation: fadeInRight .2s $ease forwards .3s;
+    }
+  }
+
+  &.landing-animation {
+    .main-section.active {
+      .circle {
+        .me {
+          opacity: 0;
+          animation: fadeIn .2s ease-in forwards 1.7s;
+        }
+      }
+
+      .copy,
+      .titles {
+        animation: fadeInRight .2s $ease forwards 1.3s;
+      }
+    }
+  }
+}
+
+.transition-out {
+
+  .main-section.active {
+
+    .circle .me {
+      animation: fadeOut .2s ease-in forwards !important;
+    }
+
+    .copy,
+    .titles,
+    .btn {
+      animation: fadeOut $duration/2 $ease forwards !important;
+    }
+  }
+}
+
+body.home {
+  .intro {
+    .copy {
+      margin-top: 10vw;
+
+      @include mobile {
+        h1 {
+          @include long-shadow(text, $gray-blue, 400, false, false, left);
+        }
+
+        h2 {
+          @include long-shadow(text, lighten($gray-blue, 5%), 400, false, false, left);
+        }
+      }
+    }
+  }
+}

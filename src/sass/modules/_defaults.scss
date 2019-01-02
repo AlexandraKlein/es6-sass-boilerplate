@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font: 300 16px $body-font;
+}
+
+p {
+  color: $white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5{
+  font-family: $header-font;
+  letter-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link {
+  @include anchorLink($dark-gray-blue)
+}
+
+.barba-container {
+  width: 100%;
+  overflow: hidden;
+}

@@ -1,3 +1,5 @@
-import ScrollEvents from './components/scrollEvents';
+import pageTransitions from './components/_barbaTransitions';
+import scollifyPage from './components/scrollify'
 
-const scrollEvents = new ScrollEvents();
+const _pageTransitions = new pageTransitions();
+const _scollifyPage = new scollifyPage();

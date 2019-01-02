@@ -1,0 +1,28 @@
+.pagination {
+  position: fixed;
+  top: 10px;
+  right: 40px;
+  list-style: none;
+
+  @include mobile {
+    top: 5px;
+    right: 30px;
+  }
+
+  li {
+    margin: 20px 0;
+
+    @include mobile {
+      font-size: 14px;
+    }
+
+    a {
+      color: $white;
+      transition: all .2s ease-in;
+
+      &.active {
+        color: $gray-blue;
+      }
+    }
+  }
+}

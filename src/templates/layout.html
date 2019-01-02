@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% include "head.html" %}
-<body>
+<!doctype html>
+<html class="no-js">
 
-{% include "home.html" %}
+{% include "head.html" %}
 
-<script src="/js/app.js"></script>
+<body class="{{ namespace }}" id="{{ namespace }}">
+
+{% include "navigation.html" %}
+
+<div id="barba-wrapper">
+  <div class="barba-container landing-animation transition-in" data-namespace="{{ namespace }}">
+
+    {% block main %}
+    {% endblock %}
+
+  </div>
+</div>
+
+{% include "scripts.html" %}
+
 </body>
 </html>

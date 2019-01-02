@@ -1,0 +1,108 @@
+{% set page_title = "About" %}
+{% set namespace = "about" %}
+
+{% set paginations = [
+    {
+      "section"  : "intro"
+    },
+    {
+      "section"  : "summary"
+    },
+    {
+      "section"  : "skills"
+    }
+  ]
+%}
+
+{% extends "layout.html" %}
+
+{% block main %}
+
+<section class="main-section scroll-section intro active" data-section-name="intro">
+
+  <div class="circle">
+    <div class="video-container">
+      <video autoplay muted loop playsinline>
+        <source src="video/ali-cat.mp4" type="video/mp4">
+        <source src="video/ali-cat.ogv" type="video/ogg">
+        <source src="video/ali-cat.webm" type="video/webm">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+  <div class="copy">
+    <h1>More</h1>
+    <h2>about me</h2>
+  </div>
+
+</section>
+
+<section class="main-section scroll-section summary" data-section-name="summary">
+
+  <div class="circle blue">
+  </div>
+  <div class="copy">
+    <div class="titles">
+      <h2>About</h2>
+    </div>
+    <figure>
+      <p><span>Who</span>Ali Klein</p>
+      <p><span>Born</span>June 13th, Pittsburgh, PA</p>
+      <p><span>Home</span>Marina del Rey, California</p>
+      <p><span>Schools</span>New York University &amp; Art Institute of California, Los Angeles</p>
+      <p><span>What</span>Front End Web Development. Focus on UX &amp; UI. Designer.</p>
+      <p><span>In Sum</span>As a passionate designer, I easily combine expertise in both visual design and web development in order to offer an aesthetically pleasing and functional user experince. </p>
+    </figure>
+  </div>
+
+</section>
+
+<section class="main-section scroll-section skills" data-section-name="skills">
+
+  <div class="circle blue"></div>
+
+  <div class="copy skills">
+    <div class="titles">
+      <h2>Some Skills</h2>
+    </div>
+
+    <div class="skill-wrapper">
+      <div class="skill javascript"></div>
+      <div class="skill angular"></div>
+      <div class="skill vue"></div>
+      <div class="skill react"></div>
+      <div class="skill backbone"></div>
+      <div class="skill babel"></div>
+      <div class="skill es6"></div>
+      <div class="skill gatsby"></div>
+      <div class="skill nodejs"></div>
+      <div class="skill npm"></div>
+      <div class="skill svg"></div>
+      <div class="skill php"></div>
+      <div class="skill grunt"></div>
+      <div class="skill gulp"></div>
+      <div class="skill webpack"></div>
+      <div class="skill html5"></div>
+      <div class="skill bootstrap"></div>
+      <div class="skill foundation"></div>
+      <div class="skill handlebars"></div>
+      <div class="skill laravel"></div>
+      <div class="skill wordpress"></div>
+      <div class="skill css3"></div>
+      <div class="skill less"></div>
+      <div class="skill sass"></div>
+      <div class="skill travis"></div>
+      <div class="skill docker"></div>
+      <div class="skill git"></div>
+      <div class="skill jira"></div>
+
+    </div>
+  </div>
+
+</section>
+
+{% include "arrows.html" %}
+
+{% include "pagination.html" %}
+
+{% endblock %}

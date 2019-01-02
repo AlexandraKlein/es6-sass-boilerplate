@@ -1,0 +1,176 @@
+.video-wrapper {
+  position: absolute;
+  @extend .vertical-align;
+  width: 50%;
+  min-width: 300px;
+  margin: 0;
+  background-color: $dark-gray-blue;
+  overflow: hidden;
+  opacity: 1;
+  transition: all .2s ease-in-out;
+
+  &.playing {
+
+    @include tablet {
+      width: 70%;
+      left: 15%;
+    }
+  }
+
+  .active & {
+    //opacity: 0;
+    //animation: fadeInRight $duration/2 $ease forwards;
+  }
+
+  @include mobile {
+    width: 90%;
+    left: 5%;
+  }
+
+  @include tablet {
+    left: 12.5vw;
+  }
+
+  video {
+    position: relative;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  #progress {
+    width: 100%;
+    background-color: lighten($dark-gray-blue, 10%);
+    cursor: pointer;
+  }
+
+  #progress-bar {
+    position: relative;
+    left: 0;
+    width: 0;
+    height: 10px;
+    background-color: $pink;
+  }
+
+  .controls {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    background-color: $dark-gray-blue;
+    color: #fff;
+    height: 50px;
+
+    button {
+      height: 40px;
+      width: 40px;
+      margin: 5px 0;
+      border-radius: 100%;
+      text-transform: uppercase;
+      color: white;
+      background-color: lighten($dark-gray-blue, 10%);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      z-index: 1;
+
+      @include mobile {
+        background-color: transparent;
+      }
+
+      &:hover {
+        background-color: lighten($dark-gray-blue, 15%);
+
+        @include mobile {
+          background-color: transparent;
+        }
+
+      }
+    }
+
+    #volume-wrap {
+      position: relative;
+      width:  20px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      #volume {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $pink;
+        z-index: 0;
+      }
+
+      div {
+        position: relative;
+        width: 100%;
+        height: 1px;
+        background-color: $dark-gray-blue;
+        z-index: 1;
+      }
+
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+
+  .fa, .fas {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 2.2;
+    color: $pink;
+
+    @include mobile {
+      font-size: 16px;
+      line-height: 1;
+    }
+  }
+
+  #play-pause-button {
+    &.play {
+      i:before {
+        content: "\f04b";
+      }
+    }
+
+    &.pause {
+      i:before {
+        content: "\f04c";
+      }
+    }
+  }
+
+  #mute-button {
+    &.mute {
+      i:before {
+        content: "\f131";
+      }
+    }
+
+    &.unmute {
+      i:before {
+        content: "\f130";
+      }
+    }
+  }
+
+  #volume-dec-button,
+  #volume-inc-button,
+  #fullscreen-button {
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .transition-out & {
+    animation: fadeOut .2s ease-in forwards;
+  }
+}

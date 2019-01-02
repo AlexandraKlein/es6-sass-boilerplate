@@ -1,0 +1,207 @@
+{% set page_title = "Work" %}
+{% set namespace = "work" %}
+
+{% set paginations = [
+    {
+      "section"  : "carousel"
+    },
+    {
+      "section"  : "reel"
+    },
+    {
+      "section"  : "clients"
+    }
+  ]
+%}
+
+{% set slides = [
+    {
+      "project"  : "worldcup",
+      "headline" : "Volkswagen",
+      "type" : "World Cup Microsite",
+      "role" : "Lead Front End",
+      "items" : ["React", "Webpack", "Twilio API", "ES6"],
+      "cta" : "https://jumponthewagen.vw.com/",
+      "cta_text" : "jumponthewagen.vw.com"
+    },
+    {
+      "project"  : "tacobell",
+      "headline" : "Tacobell",
+      "type" : "Website",
+      "role" : "Front End Developer",
+      "items" : ["Sitecore", "Backbone", "Require", "C#", ".NET"],
+      "cta" : "https://www.tacobell.com/",
+      "cta_text" : "ta.co"
+    },
+    {
+      "project"  : "target",
+      "headline" : "Target",
+      "type" : "Application",
+      "role" : "Front End Engineer",
+      "items" : ["Handlebars", "Greensock", "Grunt", "Facebook API", "Instagram API", "Pinterest API"],
+      "cta" : "http://adage.com/article/acxiom/target-taps-millenial-market-back-school-push/299675/",
+      "cta_text" : "Adage Article"
+    },
+    {
+      "project"  : "anthem",
+      "headline" : "Anthem",
+      "type" : "Website",
+      "role" : "Front End Engineer",
+      "items" : ["ES6", "Bootstrap", "Nunjucks", "Sass Control Directives"],
+      "cta" : "https://www.anthem.com/",
+      "cta_text" : "anthem.com"
+    },
+    {
+      "project"  : "vw",
+      "headline" : "Volkswagen",
+      "type" : "Platform Website",
+      "role" : "Front End Developer",
+      "items" : ["CQ", "Backbone", "React", "JSP", "THREE.js"],
+      "cta" : "http://www.vw.com/",
+      "cta_text" : "vw.com"
+    },
+    {
+      "project"  : "motts",
+      "headline" : "Motts",
+      "type" : "Website",
+      "role" : "Lead Developer",
+      "items" : ["PHP", "Blade", "Backbone", "NPM"],
+      "cta" : "https://www.motts.com/",
+      "cta_text" : "motts.com"
+    },
+    {
+      "project"  : "canadadry",
+      "headline" : "Canada Dry",
+      "type" : "Website",
+      "role" : "Lead Developer",
+      "items" : ["PHP", "Blade", "Backbone", "NPM"],
+      "cta" : "https://www.canadadry.com/",
+      "cta_text" : "canadadry.com"
+    },
+    {
+      "project"  : "carvana",
+      "headline" : "Carvana",
+      "type" : "Website",
+      "role" : "UI/UX Engineer",
+      "items" : ["Angular", "C#", ".NET", "CSS Animations"],
+      "cta" : "https://www.carvana.com/",
+      "cta_text" : "carvana.com"
+    },
+    {
+      "project"  : "shakeitup",
+      "headline" : "Shake It Up",
+      "type" : "Vending Machine UI",
+      "role" : "Lead Engineer",
+      "items" : ["React Native", "JS", "CSS Animations"],
+      "cta" : "https://www.thescore.com/s/4602282",
+      "cta_text" : "See it in action"
+    },
+    {
+      "project"  : "newsroom",
+      "headline" : "VW Newsroom",
+      "type" : "Website Blog",
+      "role" : "Lead Developer",
+      "items" : ["Wordpress", "PHP", "JavaScript", "Backbone", "Gulp"],
+      "cta" : "http://newsroom.vw.com/",
+      "cta_text" : "newsroom.vw.com"
+    },
+    {
+      "project"  : "cmab",
+      "headline" : "Milk",
+      "type" : "Website",
+      "role" : "Front End Engineer",
+      "items" : ["Backbone", "Require", "Greensock", "Twig", "October", "Gulp"],
+      "cta" : "http://www.realcaliforniamilk.com/",
+      "cta_text" : "realcaliforniamilk.com"
+    },
+    {
+      "project"  : "fosterfarms",
+      "headline" : "Foster Farms",
+      "type" : "Website",
+      "role" : "Front End Engineer",
+      "items" : ["Backbone", "Require", "Twig", "Wordpress", "Gulp"],
+      "cta" : "https://www.fosterfarms.com/",
+      "cta_text" : "fosterfarms.com"
+    },
+    {
+      "project"  : "steelhead",
+      "headline" : "Steelhead",
+      "type" : "Website",
+      "role" : "Lead Developer",
+      "items" : ["October CMS", "PHP", "ES6", "Twig", "Gulp"],
+      "cta" : "http://steelhead.tv/",
+      "cta_text" : "steelhead.tv"
+    },
+    {
+      "project"  : "thorn",
+      "headline" : "We Are Thorn",
+      "type" : "Website Redesign",
+      "role" : "Lead Developer",
+      "items" : ["Wordpress", "Salient Theme", "Visual Composer", "PHP"],
+      "cta" : "http://wearethorn.org/",
+      "cta_text" : "wearethorn.org"
+    },
+    {
+      "project"  : "deutsch",
+      "headline" : "Deutsch",
+      "type" : "Website",
+      "role" : "Lead Developer",
+      "items" : ["Angular", "October CMS", "Twig", "Greensock", "Vimeo API", "Gulp"],
+      "cta" : "http://www.deutsch.com/",
+      "cta_text" : "deutsch.com"
+    }
+  ]
+%}
+
+{% extends "layout.html" %}
+
+{% block main %}
+
+  <section class="main-section scroll-section projects active" data-section-name="carousel">
+
+    {% include "carousel.html" %}
+
+  </section>
+
+  <section class="main-section scroll-section" data-section-name="reel">
+
+    <div class="circle blue"></div>
+
+    {% include "video.html" %}
+
+  </section>
+
+  <section class="main-section scroll-section" data-section-name="clients">
+
+    <div class="circle blue"></div>
+
+    <div class="copy logos">
+      <div class="titles">
+        <h2>Select Clients</h2>
+      </div>
+
+      <div class="client-wrapper">
+        <div class="client vw"></div>
+        <div class="client target"></div>
+        <div class="client tacobell"></div>
+        <div class="client canadadry"></div>
+        <div class="client motts"></div>
+        <div class="client cmab"></div>
+        <div class="client vanityfair"></div>
+        <div class="client carvana"></div>
+        <div class="client anthem"></div>
+        <div class="client fosterfarms"></div>
+        <div class="client sevenup"></div>
+        <div class="client zillow"></div>
+        <div class="client answerfinancial"></div>
+        <div class="client deutsch"></div>
+        <div class="client steelhead"></div>
+      </div>
+    </div>
+</section>
+
+{% include "arrows.html" %}
+
+{% include "pagination.html" %}
+
+{% endblock %}

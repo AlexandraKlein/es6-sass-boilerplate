@@ -1,57 +1,82 @@
-{% set slides = [
-        {
-            "backgroundImage"  : "https://picsum.photos/1440/900?image=319",
-            "promoFlag": "New Series From Sacha Baron Cohen",
-            "headline": "Who Is America?",
-            "body": "Season Finale: Sacha Baron Cohen explores our unique nation."
-        },
-        {
-            "backgroundImage"  : "https://picsum.photos/1440/900?image=325",
-            "promoFlag": "Season 9 Premieres September 9",
-            "headline": "Shameless",
-            "body": "A scrappy, fiercely loyal Chicago family makes no apologies. Watch Seasons 1-8 now."
-        },
-        {
-            "backgroundImage"  : "https://picsum.photos/1440/900?image=22",
-            "headline": "Baby Driver",
-            "body": "A young getaway driver (Ansel Elgort) meets the girl of his dreams (Lily James), and tries to ditch his criminal life."
-        },
-        {
-            "backgroundImage"  : "https://picsum.photos/1440/900?image=841",
-            "headline": "Our Cartoon President",
-            "body": "Season Finale - Militarization: Our Cartoon President militarizes the government."
-        },
-        {
-            "backgroundImage"  : "https://picsum.photos/1440/900?image=832",
-            "headline": "Captain Fantastic",
-            "body": "A father (Viggo Mortensen) raising his six kids is forced to leave his paradise, challenging his idea of what it means to be a parent."
-        },
-        {
-            "backgroundImage"  : "https://picsum.photos/1440/900?image=804",
-            "headline": "Home Again",
-            "body": "Newly single Alice (Reese Witherspoon) meets three aspiring filmmakers in need of a place to stay."
-        },
-        {
-            "backgroundImage"  : "https://picsum.photos/1440/900?image=786",
-            "headline": "The Affair",
-            "body": "Noah, Alison, Helen and Cole are on separate journeys, but question what they’re holding on to as their lives keep crashing back into one another."
-        },
-        {
-            "backgroundImage"  : "https://picsum.photos/1440/900?image=660",
-            "headline": "The Girl On The Train",
-            "body": "A woman (Emily Blunt), devastated by her divorce, becomes entangled in a mystery after witnessing a shocking event."
-        },
-        {
-            "backgroundImage"  : "https://picsum.photos/1440/900?image=619",
-            "headline": "Rosewater",
-            "body": "A journalist gets arrested in Iran and is held and tortured for 118 days."
-        },
-        {
-            "backgroundImage"  : "https://picsum.photos/1440/900?image=596",
-            "headline": "WWII Collection",
-            "body": "This collection features films that all take place during the cataclysmic World War II era. Take the time to watch them all."
-        }
-    ]
-%}
+{% set page_title = "Home" %}
+{% set namespace = "home" %}
 
 {% extends "layout.html" %}
+
+{% set paginations = [
+    {
+      "section"  : "intro"
+    },
+    {
+      "section"  : "projects"
+    },
+    {
+      "section"  : "about"
+    },
+    {
+      "section"  : "contact"
+    }
+  ]
+%}
+
+{% block main %}
+
+  <section class="main-section scroll-section intro active" data-section-name="intro">
+
+    <div class="circle">
+      <img src="img/minka-shoulder.png" class="me" alt="Ali Klein"/>
+    </div>
+
+    <div class="copy">
+      <h1>Ali Klein</h1>
+      <h2>Front-End Developer</h2>
+    </div>
+
+  </section>
+
+  <section class="main-section scroll-section projects" data-section-name="projects">
+
+    <div class="circle blue">
+      <img src="img/clear-cache.png" class="me" alt="Ali Klein"/>
+    </div>
+    <div class="copy">
+      <h1>Work</h1>
+      <h2>My Projects</h2>
+      <a class="btn" href="work.html">See some<span></span></a>
+    </div>
+
+  </section>
+
+  <section class="main-section scroll-section" data-section-name="about">
+
+    <div class="circle">
+      <img src="img/ali-about.png" class="me" alt="Ali Klein"/>
+    </div>
+    <div class="copy">
+      <h1>About</h1>
+      <h2>Me and My Work</h2>
+      <a class="btn" href="about.html">Learn More<span></span></a>
+    </div>
+
+  </section>
+
+  <section class="main-section scroll-section contact" data-section-name="contact">
+
+    <div class="circle blue">
+      <img src="img/ali-coat.png" class="me" alt="Ali Klein"/>
+    </div>
+
+    <div class="copy">
+      <h1>Contact</h1>
+      <h2>Me & Say Hello</h2>
+      <a class="btn" href="contact.html">Ge 'head<span></span></a>
+    </div>
+
+  </section>
+
+  {% include "arrows.html" %}
+
+  {% include "pagination.html" %}
+
+{% endblock %}
+
