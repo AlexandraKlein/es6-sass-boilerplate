@@ -1,5 +1,6 @@
 import $ from 'jquery';
-require('scrollify');
+const scrollify = require('scrollify');
+
 
 const settings = {
   section : '.scroll-section',

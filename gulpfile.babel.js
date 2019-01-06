@@ -10,9 +10,8 @@ import path from 'path';
 import del from 'del';
 import nunjucksRender from 'gulp-nunjucks-render';
 import notifier from 'node-notifier';
-
-const packageJSON = require('./package.json');
-const dependencies = Object.keys(packageJSON && packageJSON.dependencies || {});
+import debug from 'gulp-debug';
+import concat from 'gulp-concat';
 
 const $ = gulploadplugins({
   lazy: true
@@ -77,6 +76,26 @@ gulp.task('scripts', () => {
     .pipe($.size({title: 'app.js'}));
 });
 
+const cwd = process.cwd();
+const modules = path.join(cwd, 'node_modules');
+
+const config = {
+  vendor: [
+    modules + '/jquery/dist/jquery.min.js',
+    modules + '/slick-carousel/slick/slick.min.js',
+    // modules + '/barba.js/dist/barba.min.js',
+    modules + '/scrollify/scrollify.js'
+  ]
+};
+
+gulp.task('vendor-scripts', () => {
+  return gulp.src(config.vendor)
+    .pipe(debug({title: 'vendor:'}))
+    .pipe($.uglify())
+    .pipe(concat('vendor.js', {newLine: '\n\n'}))
+    .pipe(gulp.dest('public/js'))
+});
+
 // a task that ensures the `scripts` task is complete before reloading browsers
 gulp.task('scripts-reloader', ['scripts'], (done) => {
   browserSync.reload();
@@ -102,7 +121,7 @@ gulp.task('html', () => {
 });
 
 // Browser-Sync
-gulp.task('serve', ['styles', 'scripts', 'html', 'static'], () => {
+gulp.task('serve', ['styles', 'scripts', 'vendor-scripts', 'html', 'static'], () => {
   browserSync({
     notify: false,
     server: ['.tmp', 'public']
@@ -122,4 +141,4 @@ gulp.task('serve', ['styles', 'scripts', 'html', 'static'], () => {
   });
 });
 
-gulp.task('build', ['styles', 'scripts', 'html', 'static']);
+gulp.task('build', ['styles', 'scripts', 'vendor-scripts', 'html', 'static']);
