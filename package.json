@@ -43,6 +43,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "jquery": "^3.3.1",
+    "jquery-scrollify": "^1.0.19",
     "node-notifier": "^5.1.2",
     "path": "^0.12.7",
     "scrollify": "^1.0.0",

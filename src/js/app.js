@@ -1,5 +1,5 @@
-import pageTransitions from './components/_barbaTransitions';
-import scollifyPage from './components/scrollify'
+import PageTransitions from './components/_barbaTransitions';
+import ScollifyPage from './components/scrollify'
 
-const _pageTransitions = new pageTransitions();
-const _scollifyPage = new scollifyPage();
+const pageTransitions = new PageTransitions();
+const scollifyPage = new ScollifyPage();
