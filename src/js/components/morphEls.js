@@ -2,7 +2,6 @@ import './jquery-global';
 import Snap from 'snapsvg';
 
 export function MorphEls() {
-  console.log('morphels');
   function snapMorphHover(args) {
     const s = Snap(args.el);
     const path = s.select('path');

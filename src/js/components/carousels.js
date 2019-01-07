@@ -11,10 +11,10 @@ export function SlickCarousel() {
     nextArrow: $('.arrow-next')
   });
 
-  $('.slick-active').addClass('active');
+  $('.slick-active .slide').addClass('active animate');
 
   $('.carousel').on('afterChange', function() {
-    $(this).find('.slide.slick-active').addClass('animate')
+    $(this).find('.slick-active .slide').addClass('animate')
       .siblings().removeClass('animate');
 
     $(this).find('.slide').removeClass('open')

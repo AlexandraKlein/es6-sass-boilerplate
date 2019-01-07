@@ -249,6 +249,8 @@ export default class App {
     }
 
     $document.ready(() => {
+      window.scrollTo(0, 0);
+      $.scrollify.move(0);
       $.scrollify(settings);
       paginationArrowsMove();
     });

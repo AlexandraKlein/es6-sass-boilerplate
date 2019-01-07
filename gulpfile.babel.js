@@ -108,7 +108,7 @@ gulp.task('serve', ['styles', 'scripts', 'html', 'static'], () => {
     server: ['.tmp', 'public']
   });
 
-  gulp.watch(['src/sass/**/*.{sass,css}'], ['styles']);
+  gulp.watch('./**/*.scss', ['styles']);
   gulp.watch(['src/js/**/*.js'], ['scripts-reloader']);
   gulp.watch(['src/**/*.html'], ['html']).on('change', browserSync.reload);
   gulp.watch(['src/**/*.{html,php,jpg,jpeg,png,gif,webp,mp4,svg,ico,eot,ttf,woff,woff2,otf}'], ['static']).on('change', (event) => {
