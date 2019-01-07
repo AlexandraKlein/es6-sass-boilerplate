@@ -1,4 +1,6 @@
-function parallax() {
+const TweenLite = require('gsap');
+
+export function Parallax() {
   const $container = $('.active .devices');
   const $desktop = $('img.desktop');
   const $laptop = $('img.laptop');
@@ -38,11 +40,3 @@ function parallax() {
     }
   });
 }
-
-if ($('body').hasClass('work')) {
-  $(() => parallax());
-}
-
-$(document).on('workOnEnterCompleted', () => {
-  $(() => parallax());
-});

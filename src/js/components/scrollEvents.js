@@ -1,13 +1,15 @@
 import './jquery-global.js';
 import Barba from 'barba.js';
+import { MorphEls } from './morphEls';
+import { SlickCarousel } from './carousels';
+import { Parallax } from './parallax';
+import { VideoPlayer} from './video';
+import { DirectionAwareButton } from './buttonEffect';
 import scrollify from 'jquery-scrollify';
-import Snap from 'snapsvg';
-import slick from 'slick-carousel';
 
 
 const $document = $(document);
 const $body = $('body');
-
 
 export default class ScrollEvents {
   constructor() {
@@ -15,6 +17,9 @@ export default class ScrollEvents {
     this.initScollify();
     this.initMorphEls();
     this.initSlickCarousel();
+    this.initParallax();
+    this.initVideoPlayer();
+    this.initButtonEffect();
   }
 
   initPageTransitions() {
@@ -262,97 +267,52 @@ export default class ScrollEvents {
   }
 
   initMorphEls() {
-    function morphEls() {
-      console.log('morphels')
-      function snapMorphHover(args) {
-        const s = Snap(args.el);
-        const path = s.select('path');
-
-        const pathConfig = {
-          toSpeed: args.toSpeed,
-          fromSpeed: args.fromSpeed,
-          from: path.attr('d'),
-          to: args.el.getAttribute('data-morph-active')
-        };
-
-        args.el.addEventListener('mouseover', () => path.animate({ 'path': pathConfig.to }, pathConfig.toSpeed, args.easeIn));
-        args.el.addEventListener('mouseout', () => path.animate({ 'path': pathConfig.from }, pathConfig.fromSpeed, args.easeOut));
-      }
-
-      const snapElsUpDown = [
-        {el: document.querySelector('.arrow-up'), easeIn: mina.easein, easeOut: mina.easeout, toSpeed: 300, fromSpeed: 150},
-        {el: document.querySelector('.arrow-down'), easeIn: mina.easein, easeOut: mina.easeout, toSpeed: 300, fromSpeed: 150}
-      ];
-
-      const snapElsLeftRight = [
-        {el: document.querySelector('.arrow-next'), easeIn: mina.easein, easeOut: mina.bounce, toSpeed: 300, fromSpeed: 500},
-        {el: document.querySelector('.arrow-prev'), easeIn: mina.easein, easeOut: mina.bounce, toSpeed: 300, fromSpeed: 500}
-      ];
-
-      if ($('body').hasClass('home') || $('body').hasClass('work') || $('body').hasClass('about')) {
-        for (let i=0; i<snapElsUpDown.length; i++) {
-          snapMorphHover(snapElsUpDown[i]);
-        }
-      }
-
-      if ($('body').hasClass('work')) {
-        for (let i=0; i<snapElsLeftRight.length; i++) {
-          snapMorphHover(snapElsLeftRight[i]);
-        }
-      }
-    }
-
-    $(() => morphEls());
+    $(() => MorphEls());
 
     $document.on('allPagesEnterCompleted', () => {
-      setTimeout( ()=>  morphEls())
+      setTimeout( ()=>  MorphEls())
     });
   }
 
   initSlickCarousel() {
-   function slickCarousel() {
-     $('.carousel').slick({
-       dots: true,
-       infinite: true,
-       variableWidth: true,
-       slidesToShow: 1,
-       prevArrow: $('.arrow-prev'),
-       nextArrow: $('.arrow-next')
-     });
-
-     $('.slick-active').addClass('active');
-
-     $('.carousel').on('afterChange', function() {
-       $(this).find('.slide.slick-active').addClass('animate')
-         .siblings().removeClass('animate');
-
-       $(this).find('.slide').removeClass('open')
-         .find('.btn .text').text('Learn More');
-     });
-
-     $('.carousel .slick-active').addClass('animate');
-
-     $('.carousel .slide').toArray().forEach(el => {
-       const $el = $(el);
-       const $btn = $el.find('.btn');
-
-       $btn.click(() => {
-         let buttonText = $el.hasClass('open') ? 'Learn More' : 'Back';
-         $el.toggleClass('open');
-         $btn.find('.text').text(buttonText);
-       });
-     });
-   }
 
    $(() => {
      if ($body.hasClass('work')) {
-       slickCarousel();
+       SlickCarousel();
      }
    });
 
    $document.on('workOnEnter', () => {
-     slickCarousel();
+     SlickCarousel();
    });
 
+  }
+
+  initParallax() {
+    if ($body.hasClass('work')) {
+      $(() => Parallax());
+    }
+
+    $(document).on('workOnEnterCompleted', () => {
+      $(() => Parallax());
+    });
+
+  }
+
+  initVideoPlayer() {
+    if ($body.hasClass('work')) {
+      $(() => VideoPlayer());
+    }
+    $(document).on('workOnEnterCompleted', () => {
+      VideoPlayer()
+    });
+  }
+
+  initButtonEffect() {
+    $(() => DirectionAwareButton());
+
+    $document.on('allPagesEnter', () => {
+      DirectionAwareButton();
+    });
   }
 }

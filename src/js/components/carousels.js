@@ -1,4 +1,7 @@
-function slickCarousel() {
+import './jquery-global';
+import slick from 'slick-carousel';
+
+export function SlickCarousel() {
   $('.carousel').slick({
     dots: true,
     infinite: true,
@@ -31,7 +34,3 @@ function slickCarousel() {
     });
   });
 }
-
-$(document).on('workOnEnter', () => {
-  slickCarousel();
-});

@@ -1,4 +1,4 @@
-function videoPlayer() {
+export function VideoPlayer() {
   const video = document.getElementById('video');
   const btn = document.getElementById('play-pause-button');
   const progress = document.getElementById('progress');
@@ -118,5 +118,3 @@ function videoPlayer() {
   progress.addEventListener('click', seek);
   fullscreen.addEventListener('click', toggleFullScreen);
 }
-
-$(document).on('workOnEnterCompleted', videoPlayer);

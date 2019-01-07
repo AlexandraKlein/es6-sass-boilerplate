@@ -1,4 +1,4 @@
-function directionAwareButton() {
+export function DirectionAwareButton() {
   $('.btn')
     .on('mouseenter', function(e) {
       const parentOffset = $(this).offset();
@@ -13,9 +13,3 @@ function directionAwareButton() {
       $(this).find('span').css({top:relY, left:relX})
     });
 }
-
-$(() => directionAwareButton());
-
-$($document).on('allPagesEnter', () => {
-  directionAwareButton();
-});
