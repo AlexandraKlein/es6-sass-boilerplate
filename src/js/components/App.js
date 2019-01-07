@@ -7,11 +7,10 @@ import { VideoPlayer} from './video';
 import { DirectionAwareButton } from './buttonEffect';
 import scrollify from 'jquery-scrollify';
 
-
 const $document = $(document);
 const $body = $('body');
 
-export default class ScrollEvents {
+export default class App {
   constructor() {
     this.initPageTransitions();
     this.initScollify();
@@ -186,7 +185,6 @@ export default class ScrollEvents {
           .addClass('active');
       },
       before(i, panels) {
-
         const ref = panels[i].attr('data-section-name');
         const classes = 'active previous next';
         const videoWrapper = $('.video-wrapper');
@@ -239,7 +237,6 @@ export default class ScrollEvents {
     };
 
     function paginationArrowsMove() {
-
       $('.pagination a').toArray().forEach((el, i) => {
         $(el).click(e => {
           e.preventDefault();
@@ -248,7 +245,6 @@ export default class ScrollEvents {
       });
 
       $('.arrow-down').click(() => $.scrollify.next());
-
       $('.arrow-up').click(() => $.scrollify.previous());
     }
 
@@ -276,27 +272,21 @@ export default class ScrollEvents {
 
   initSlickCarousel() {
 
-   $(() => {
-     if ($body.hasClass('work')) {
-       SlickCarousel();
-     }
-   });
-
+    if ($body.hasClass('work')) {
+      $(() => SlickCarousel());
+    }
    $document.on('workOnEnter', () => {
      SlickCarousel();
    });
-
   }
 
   initParallax() {
     if ($body.hasClass('work')) {
       $(() => Parallax());
     }
-
     $(document).on('workOnEnterCompleted', () => {
-      $(() => Parallax());
+      Parallax();
     });
-
   }
 
   initVideoPlayer() {

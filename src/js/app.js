@@ -1,3 +1,3 @@
-import ScrollEvents from './components/scrollEvents';
+import App from './components/App';
 
-const scrollEvents = new ScrollEvents();
+const app = new App();
